@@ -1,0 +1,1467 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Sefaz",
+    "description": "Documentação integrada com Keycloak",
+    "version": "1.0.0"
+  },
+  "servers": [
+    { "url": "http://localhost:8080", "description": "Generated server url" }
+  ],
+  "security": [{ "Bearer Authentication": [] }],
+  "paths": {
+    "/v1/gateways/{id}": {
+      "get": {
+        "tags": ["gateway-controller"],
+        "operationId": "buscar",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/GatewayResponseDTO" }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["gateway-controller"],
+        "operationId": "atualizar",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/GatewayUpdateDTO" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/GatewayResponseDTO" }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["gateway-controller"],
+        "operationId": "deletar",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/v1/backend/{id}": {
+      "get": {
+        "tags": ["backend-controller"],
+        "operationId": "buscar_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/BackendResponseDTO" }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["backend-controller"],
+        "operationId": "atualizar_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/BackendUpdateDTO" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/BackendResponseDTO" }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["backend-controller"],
+        "operationId": "deletar_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/v1/backends/{id}": {
+      "get": {
+        "tags": ["backend-controller"],
+        "operationId": "buscar_2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/BackendResponseDTO" }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["backend-controller"],
+        "operationId": "atualizar_2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/BackendUpdateDTO" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/BackendResponseDTO" }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["backend-controller"],
+        "operationId": "deletar_2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/v1/gateways": {
+      "get": {
+        "tags": ["gateway-controller"],
+        "operationId": "listar",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/GatewayResponseDTO" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["gateway-controller"],
+        "operationId": "criar",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/GatewayCreateDTO" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/GatewayResponseDTO" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/backend/{id}/verificar": {
+      "post": {
+        "tags": ["backend-controller"],
+        "operationId": "verificar",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BackendHealthStatusDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/backends/{id}/verificar": {
+      "post": {
+        "tags": ["backend-controller"],
+        "operationId": "verificar_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BackendHealthStatusDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/backends/{id}/runpipe": {
+      "post": {
+        "tags": ["backend-controller"],
+        "operationId": "executarPipeline",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          },
+          {
+            "name": "ref",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "default": "main" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/GitLabPipelineDTO" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/backend/{id}/runpipe": {
+      "post": {
+        "tags": ["backend-controller"],
+        "operationId": "executarPipeline_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          },
+          {
+            "name": "ref",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "default": "main" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/GitLabPipelineDTO" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/backend": {
+      "get": {
+        "tags": ["backend-controller"],
+        "operationId": "listar_1",
+        "parameters": [
+          {
+            "name": "ambiente",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "enum": ["DEV", "HML", "PRD"] }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["UP", "DOWN", "DEGRADED", "UNKNOWN"]
+            }
+          },
+          {
+            "name": "pageable",
+            "in": "query",
+            "required": true,
+            "schema": { "$ref": "#/components/schemas/Pageable" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageBackendResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["backend-controller"],
+        "operationId": "criar_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/BackendCreateDTO" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/BackendResponseDTO" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/backends": {
+      "get": {
+        "tags": ["backend-controller"],
+        "operationId": "listar_2",
+        "parameters": [
+          {
+            "name": "ambiente",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "enum": ["DEV", "HML", "PRD"] }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["UP", "DOWN", "DEGRADED", "UNKNOWN"]
+            }
+          },
+          {
+            "name": "pageable",
+            "in": "query",
+            "required": true,
+            "schema": { "$ref": "#/components/schemas/Pageable" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageBackendResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["backend-controller"],
+        "operationId": "criar_2",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/BackendCreateDTO" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/BackendResponseDTO" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/gateways/{id}/desativar": {
+      "patch": {
+        "tags": ["gateway-controller"],
+        "operationId": "desativar",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/GatewayResponseDTO" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/gateways/{id}/ativar": {
+      "patch": {
+        "tags": ["gateway-controller"],
+        "operationId": "ativar",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/GatewayResponseDTO" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/gateways/{id}/versao": {
+      "get": {
+        "tags": ["gateway-controller"],
+        "operationId": "versao",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/GatewayVersionDTO" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/gateways/{id}/status": {
+      "get": {
+        "tags": ["gateway-controller"],
+        "operationId": "status",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayHealthStatusDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/gateways/{id}/pipelines": {
+      "get": {
+        "tags": ["gateway-controller"],
+        "operationId": "listarPipelines",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/GitLabPipelineDTO" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/gateways/{id}/pipeline/status": {
+      "get": {
+        "tags": ["gateway-controller"],
+        "operationId": "consultarStatusPipeline",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          },
+          {
+            "name": "pipelineId",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/GitLabPipelineDTO" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/gateways/{id}/endpoints/contagem": {
+      "get": {
+        "tags": ["gateway-controller"],
+        "operationId": "contarEndpoints",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEndpointCountDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/backend/{id}/versao/validar": {
+      "get": {
+        "tags": ["backend-controller"],
+        "operationId": "validarVersao",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BackendVersionValidationDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/backends/{id}/versao/validar": {
+      "get": {
+        "tags": ["backend-controller"],
+        "operationId": "validarVersao_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BackendVersionValidationDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/backend/{id}/versao": {
+      "get": {
+        "tags": ["backend-controller"],
+        "operationId": "versao_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": { "*/*": { "schema": { "type": "string" } } }
+          }
+        }
+      }
+    },
+    "/v1/backends/{id}/versao": {
+      "get": {
+        "tags": ["backend-controller"],
+        "operationId": "versao_2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": { "*/*": { "schema": { "type": "string" } } }
+          }
+        }
+      }
+    },
+    "/v1/backend/{id}/statuspipe": {
+      "get": {
+        "tags": ["backend-controller"],
+        "operationId": "buscarStatusPipeline",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/GitLabPipelineDTO" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/backends/{id}/statuspipe": {
+      "get": {
+        "tags": ["backend-controller"],
+        "operationId": "buscarStatusPipeline_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/GitLabPipelineDTO" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/backend/{id}/status": {
+      "get": {
+        "tags": ["backend-controller"],
+        "operationId": "status_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BackendHealthStatusDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/backends/{id}/status": {
+      "get": {
+        "tags": ["backend-controller"],
+        "operationId": "status_2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BackendHealthStatusDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/backends/{id}/db/status": {
+      "get": {
+        "tags": ["backend-controller"],
+        "operationId": "statusBanco",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/BackendDbStatusDTO" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/backend/{id}/db/status": {
+      "get": {
+        "tags": ["backend-controller"],
+        "operationId": "statusBanco_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/BackendDbStatusDTO" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/backend/{id}/apis/contagem": {
+      "get": {
+        "tags": ["backend-controller"],
+        "operationId": "contarApis",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/BackendApiCountDTO" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/backends/{id}/apis/contagem": {
+      "get": {
+        "tags": ["backend-controller"],
+        "operationId": "contarApis_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/BackendApiCountDTO" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/auditoria/gateways/{id}": {
+      "get": {
+        "tags": ["auditoria-controller"],
+        "operationId": "historicoGateway",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/auditoria/backends/{id}": {
+      "get": {
+        "tags": ["auditoria-controller"],
+        "operationId": "historicoBackend",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/auditoria/backend/{id}": {
+      "get": {
+        "tags": ["auditoria-controller"],
+        "operationId": "historicoBackend_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GatewayUpdateDTO": {
+        "type": "object",
+        "properties": {
+          "nome": { "type": "string", "maxLength": 100, "minLength": 0 },
+          "enderecoIp": {
+            "type": "string",
+            "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.|$)){4}$"
+          },
+          "ativo": { "type": "boolean" },
+          "contextPath": { "type": "string", "maxLength": 150, "minLength": 0 },
+          "gitlabId": { "type": "integer", "format": "int64" },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string", "maxLength": 100, "minLength": 0 }
+          },
+          "porta": { "type": "string", "maxLength": 4, "minLength": 4 },
+          "tentativasRetentativa": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 10,
+            "minimum": 0
+          },
+          "host": { "type": "string", "maxLength": 150, "minLength": 0 },
+          "descricao": { "type": "string", "maxLength": 255, "minLength": 0 },
+          "backendIds": {
+            "type": "array",
+            "items": { "type": "integer", "format": "int64" }
+          },
+          "urlMetricas": { "type": "string", "maxLength": 255, "minLength": 0 },
+          "urlExterna": { "type": "string", "maxLength": 255, "minLength": 0 },
+          "urlInterna": { "type": "string", "maxLength": 255, "minLength": 0 },
+          "rateLimit": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 10000,
+            "minimum": 1
+          }
+        }
+      },
+      "GatewayBackendResponseDTO": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "format": "int64" },
+          "descricao": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["UP", "DOWN", "DEGRADED", "UNKNOWN"]
+          },
+          "baseUrl": { "type": "string" }
+        }
+      },
+      "GatewayResponseDTO": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "format": "int64" },
+          "nome": { "type": "string" },
+          "enderecoIp": { "type": "string" },
+          "ativo": { "type": "boolean" },
+          "contextPath": { "type": "string" },
+          "gitlabId": { "type": "integer", "format": "int64" },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "porta": { "type": "string" },
+          "tentativasRetentativa": { "type": "integer", "format": "int32" },
+          "host": { "type": "string" },
+          "descricao": { "type": "string" },
+          "urlMetricas": { "type": "string" },
+          "urlExterna": { "type": "string" },
+          "urlInterna": { "type": "string" },
+          "rateLimit": { "type": "integer", "format": "int32" },
+          "backends": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GatewayBackendResponseDTO"
+            }
+          }
+        }
+      },
+      "BackendUpdateDTO": {
+        "type": "object",
+        "properties": {
+          "nome": { "type": "string", "maxLength": 100, "minLength": 0 },
+          "descricao": { "type": "string", "maxLength": 255, "minLength": 0 },
+          "versao": { "type": "string", "maxLength": 20, "minLength": 0 },
+          "gitlabId": { "type": "integer", "format": "int64" },
+          "status": {
+            "type": "string",
+            "enum": ["UP", "DOWN", "DEGRADED", "UNKNOWN"]
+          },
+          "ultimoStatus": {
+            "type": "string",
+            "enum": ["UP", "DOWN", "DEGRADED", "UNKNOWN"]
+          },
+          "ambiente": { "type": "string", "enum": ["DEV", "HML", "PRD"] },
+          "responsavel": { "type": "string", "maxLength": 20, "minLength": 0 },
+          "baseUrl": { "type": "string", "maxLength": 255, "minLength": 0 },
+          "urlRepo": { "type": "string", "maxLength": 255, "minLength": 0 },
+          "urlDocumentacao": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 0
+          },
+          "urlLogs": { "type": "string", "maxLength": 255, "minLength": 0 },
+          "urlHealthCheck": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 0
+          },
+          "apiNumero": { "type": "string" },
+          "stack": { "type": "array", "items": { "type": "string" } },
+          "techTags": { "type": "array", "items": { "type": "string" } },
+          "detalhesErro": { "type": "string" },
+          "dataUltimaVerificacao": {
+            "type": "string",
+            "maxLength": 20,
+            "minLength": 0
+          }
+        }
+      },
+      "BackendResponseDTO": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "format": "int64" },
+          "nome": { "type": "string" },
+          "descricao": { "type": "string" },
+          "versao": { "type": "string" },
+          "gitlabId": { "type": "integer", "format": "int64" },
+          "status": {
+            "type": "string",
+            "enum": ["UP", "DOWN", "DEGRADED", "UNKNOWN"]
+          },
+          "ultimoStatus": {
+            "type": "string",
+            "enum": ["UP", "DOWN", "DEGRADED", "UNKNOWN"]
+          },
+          "ambiente": { "type": "string", "enum": ["DEV", "HML", "PRD"] },
+          "responsavel": { "type": "string" },
+          "baseUrl": { "type": "string" },
+          "urlRepo": { "type": "string" },
+          "urlDocumentacao": { "type": "string" },
+          "urlLogs": { "type": "string" },
+          "urlHealthCheck": { "type": "string" },
+          "apiNumero": { "type": "string" },
+          "stack": { "type": "array", "items": { "type": "string" } },
+          "techTags": { "type": "array", "items": { "type": "string" } },
+          "detalhesErro": { "type": "string" },
+          "dataUltimaVerificacao": { "type": "string" },
+          "gatewayId": { "type": "integer", "format": "int64" }
+        }
+      },
+      "GatewayCreateDTO": {
+        "type": "object",
+        "properties": {
+          "nome": { "type": "string", "maxLength": 100, "minLength": 0 },
+          "enderecoIp": {
+            "type": "string",
+            "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.|$)){4}$"
+          },
+          "ativo": { "type": "boolean" },
+          "contextPath": { "type": "string", "maxLength": 150, "minLength": 0 },
+          "gitlabId": { "type": "integer", "format": "int64" },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string", "maxLength": 100, "minLength": 0 }
+          },
+          "porta": { "type": "string", "maxLength": 4, "minLength": 4 },
+          "tentativasRetentativa": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 10,
+            "minimum": 0
+          },
+          "backendIds": {
+            "type": "array",
+            "items": { "type": "integer", "format": "int64" }
+          },
+          "host": { "type": "string", "maxLength": 150, "minLength": 0 },
+          "descricao": { "type": "string", "maxLength": 255, "minLength": 0 },
+          "urlMetricas": { "type": "string", "maxLength": 255, "minLength": 0 },
+          "urlExterna": { "type": "string", "maxLength": 255, "minLength": 0 },
+          "urlInterna": { "type": "string", "maxLength": 255, "minLength": 0 },
+          "rateLimit": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 10000,
+            "minimum": 1
+          }
+        },
+        "required": ["backendIds", "contextPath", "nome"]
+      },
+      "BackendHealthStatusDTO": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "format": "int64" },
+          "nome": { "type": "string" },
+          "urlHealthCheck": { "type": "string" },
+          "ultimoStatus": {
+            "type": "string",
+            "enum": ["UP", "DOWN", "DEGRADED", "UNKNOWN"]
+          },
+          "dataUltimaVerificacao": { "type": "string" },
+          "detalhesErro": { "type": "string" }
+        }
+      },
+      "GitLabPipelineDTO": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "format": "int64" },
+          "iid": { "type": "integer", "format": "int64" },
+          "projectId": { "type": "integer", "format": "int64" },
+          "status": { "type": "string" },
+          "source": { "type": "string" },
+          "ref": { "type": "string" },
+          "sha": { "type": "string" },
+          "name": { "type": "string" },
+          "webUrl": { "type": "string" },
+          "createdAt": { "type": "string" },
+          "updatedAt": { "type": "string" }
+        }
+      },
+      "BackendCreateDTO": {
+        "type": "object",
+        "properties": {
+          "nome": { "type": "string", "maxLength": 100, "minLength": 0 },
+          "descricao": { "type": "string", "maxLength": 255, "minLength": 0 },
+          "versao": { "type": "string", "maxLength": 20, "minLength": 0 },
+          "gitlabId": { "type": "integer", "format": "int64" },
+          "status": {
+            "type": "string",
+            "enum": ["UP", "DOWN", "DEGRADED", "UNKNOWN"]
+          },
+          "ultimoStatus": {
+            "type": "string",
+            "enum": ["UP", "DOWN", "DEGRADED", "UNKNOWN"]
+          },
+          "ambiente": { "type": "string", "enum": ["DEV", "HML", "PRD"] },
+          "responsavel": { "type": "string", "maxLength": 20, "minLength": 0 },
+          "baseUrl": { "type": "string", "maxLength": 255, "minLength": 0 },
+          "urlRepo": { "type": "string", "maxLength": 255, "minLength": 0 },
+          "urlDocumentacao": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 0
+          },
+          "urlLogs": { "type": "string", "maxLength": 255, "minLength": 0 },
+          "urlHealthCheck": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 0
+          },
+          "apiNumero": { "type": "string" },
+          "stack": { "type": "array", "items": { "type": "string" } },
+          "techTags": { "type": "array", "items": { "type": "string" } },
+          "detalhesErro": { "type": "string" },
+          "dataUltimaVerificacao": { "type": "string" }
+        },
+        "required": [
+          "ambiente",
+          "apiNumero",
+          "baseUrl",
+          "descricao",
+          "gitlabId",
+          "nome",
+          "responsavel",
+          "stack",
+          "status",
+          "techTags",
+          "urlDocumentacao",
+          "urlHealthCheck",
+          "urlLogs",
+          "urlRepo",
+          "versao"
+        ]
+      },
+      "GatewayVersionDTO": {
+        "type": "object",
+        "properties": {
+          "gatewayId": { "type": "integer", "format": "int64" },
+          "nomeGateway": { "type": "string" },
+          "versaoGitlab": { "type": "string" }
+        }
+      },
+      "BackendStatusItem": {
+        "type": "object",
+        "properties": {
+          "backendId": { "type": "integer", "format": "int64" },
+          "nome": { "type": "string" },
+          "ultimoStatus": {
+            "type": "string",
+            "enum": ["UP", "DOWN", "DEGRADED", "UNKNOWN"]
+          },
+          "dataUltimaVerificacao": { "type": "string" }
+        }
+      },
+      "GatewayHealthStatusDTO": {
+        "type": "object",
+        "properties": {
+          "gatewayId": { "type": "integer", "format": "int64" },
+          "nomeGateway": { "type": "string" },
+          "ativo": { "type": "boolean" },
+          "statusAgregado": {
+            "type": "string",
+            "enum": ["UP", "DOWN", "DEGRADED", "UNKNOWN"]
+          },
+          "totalBackends": { "type": "integer", "format": "int32" },
+          "totalUp": { "type": "integer", "format": "int32" },
+          "totalDown": { "type": "integer", "format": "int32" },
+          "totalUnknown": { "type": "integer", "format": "int32" },
+          "backends": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/BackendStatusItem" }
+          }
+        }
+      },
+      "GatewayEndpointCountDTO": {
+        "type": "object",
+        "properties": {
+          "gatewayId": { "type": "integer", "format": "int64" },
+          "nomeGateway": { "type": "string" },
+          "totalBackends": { "type": "integer", "format": "int32" },
+          "fonte": { "type": "string" }
+        }
+      },
+      "BackendVersionValidationDTO": {
+        "type": "object",
+        "properties": {
+          "backendId": { "type": "integer", "format": "int64" },
+          "nomeBackend": { "type": "string" },
+          "versaoEntidade": { "type": "string" },
+          "versaoGitlab": { "type": "string" },
+          "versoesConcordam": { "type": "boolean" }
+        }
+      },
+      "BackendDbStatusDTO": {
+        "type": "object",
+        "properties": {
+          "backendId": { "type": "integer", "format": "int64" },
+          "nomeBackend": { "type": "string" },
+          "urlConsultada": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["UP", "DOWN", "DEGRADED", "UNKNOWN"]
+          },
+          "detalhes": { "type": "string" },
+          "dataConsulta": { "type": "string" }
+        }
+      },
+      "BackendApiCountDTO": {
+        "type": "object",
+        "properties": {
+          "backendId": { "type": "integer", "format": "int64" },
+          "nomeBackend": { "type": "string" },
+          "urlConsultada": { "type": "string" },
+          "totalEndpoints": { "type": "integer", "format": "int32" },
+          "totalOperacoes": { "type": "integer", "format": "int32" },
+          "fonte": { "type": "string" }
+        }
+      },
+      "Pageable": {
+        "type": "object",
+        "properties": {
+          "page": { "type": "integer", "format": "int32", "minimum": 0 },
+          "size": { "type": "integer", "format": "int32", "minimum": 1 },
+          "sort": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "PageBackendResponseDTO": {
+        "type": "object",
+        "properties": {
+          "totalElements": { "type": "integer", "format": "int64" },
+          "totalPages": { "type": "integer", "format": "int32" },
+          "size": { "type": "integer", "format": "int32" },
+          "content": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/BackendResponseDTO" }
+          },
+          "number": { "type": "integer", "format": "int32" },
+          "sort": { "$ref": "#/components/schemas/SortObject" },
+          "numberOfElements": { "type": "integer", "format": "int32" },
+          "first": { "type": "boolean" },
+          "last": { "type": "boolean" },
+          "pageable": { "$ref": "#/components/schemas/PageableObject" },
+          "empty": { "type": "boolean" }
+        }
+      },
+      "PageableObject": {
+        "type": "object",
+        "properties": {
+          "offset": { "type": "integer", "format": "int64" },
+          "sort": { "$ref": "#/components/schemas/SortObject" },
+          "pageNumber": { "type": "integer", "format": "int32" },
+          "pageSize": { "type": "integer", "format": "int32" },
+          "unpaged": { "type": "boolean" },
+          "paged": { "type": "boolean" }
+        }
+      },
+      "SortObject": {
+        "type": "object",
+        "properties": {
+          "empty": { "type": "boolean" },
+          "sorted": { "type": "boolean" },
+          "unsorted": { "type": "boolean" }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Bearer Authentication": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

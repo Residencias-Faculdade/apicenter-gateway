@@ -5,11 +5,11 @@ export interface BackendResponseDTO{
     descricao: string;
     versao: string;
     gitlabId: number;
-    status: 'UP' | 'DOWN' | 'DEGRADED' | 'UNKNOW';
-    ultimoStatus: 'UP' | 'DOWN' | 'DEGRADED' | 'UNKNOW';
+    status: 'UP' | 'DOWN' | 'DEGRADED' | 'UNKNOWN';
+    ultimoStatus: 'UP' | 'DOWN' | 'DEGRADED' | 'UNKNOWN';
     ambiente: 'DEV' | 'HML' | 'PRD';
     responsavel: string;
-    baseUrl: string
+    baseUrl: string;
     urlRepo: string;
     urlDocumentacao: string;
     urlLogs: string;
@@ -24,24 +24,24 @@ export interface BackendCreateDTO{
     descricao: string;
     versao: string;
     gitlabId: number;
-    status: 'UP' | 'DOWN' | 'DEGRADED' | 'UNKNOW';
-    ultimoStatus: 'UP' | 'DOWN' | 'DEGRADED' | 'UNKNOW';
+    status: 'UP' | 'DOWN' | 'DEGRADED' | 'UNKNOWN';
+    ultimoStatus: 'UP' | 'DOWN' | 'DEGRADED' | 'UNKNOWN';
     ambiente: 'DEV' | 'HML' | 'PRD';
     responsavel: string;
-    baseUrl: string
+    baseUrl: string;
     urlRepo: string;
     urlDocumentacao: string;
     urlLogs: string;
     urlHealthCheck: string;
     apiNumber: string;
     stack: string[];
-    techTag: string[];
-    detalhesError: string;
+    techTags: string[];
+    detalhesErro: string;
     dataUltimaVerificacao: string;
 
 }
 
-export interface PageBackendRespondeDTO{
+export interface PageBackendResponseDTO{
 
     totalElements: number;
     totalPages: number;

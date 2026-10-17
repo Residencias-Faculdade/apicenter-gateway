@@ -1,8 +1,8 @@
 export interface GatewayResponseDTO{
 
     id: number;
-    nome: String;
-    enderecoIp: String;
+    nome: string;
+    enderecoIp: string;
     ativo: boolean;
     contextPath: string;
     gitlabId: number;
@@ -16,7 +16,7 @@ export interface GatewayResponseDTO{
     urlExterna: string;
     rateLimit: number;
     backendIds: number[];
-    backends: GatewayResponseDTO[];
+    backends: GatewayBackendResponseDTO[];
 
 }
 
@@ -24,15 +24,15 @@ export interface GatewayBackendResponseDTO{
 
     id: number;
     descricao: string;
-    status: 'UP' | 'DOWN' | 'DEGRADED' | 'UNKNOW';
+    status: 'UP' | 'DOWN' | 'DEGRADED' | 'UNKNOWN';
     baseUrl: string;
 
 }
 
 export interface GatewayCreateDTO{
 
-    nome: String;
-    enderecoIp: String;
+    nome: string;
+    enderecoIp: string;
     ativo: boolean;
     contextPath: string;
     gitlabId: number;
@@ -49,8 +49,8 @@ export interface GatewayCreateDTO{
 
 export interface GatewayUpdateDTO{
 
-    nome?: String;
-    enderecoIp?: String;
+    nome?: string;
+    enderecoIp?: string;
     ativo?: boolean;
     contextPath?: string;
     gitlabId?: number;

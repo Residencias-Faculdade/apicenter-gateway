@@ -1,6 +1,13 @@
 import { bootstrapApplication } from '@angular/platform-browser';
+import { createCustomElement } from '@angular/elements';
+import { GatewayList } from './app/gateway-list/gateway-list';
 import { appConfig } from './app/app.config';
-import { App } from './app/app';
+bootstrapApplication(GatewayList, appConfig).then((appRef) => {
+  const gatewayElement = createCustomElement(GatewayList, {
+    injector: appRef.injector as any,
+  });
 
-bootstrapApplication(App, appConfig)
-  .catch((err) => console.error(err));
+  customElements.define('apicenter-gateway-list', gatewayElement);
+
+  console.log('✅ Web Component <apicenter-gateway-list> registrado!');
+});

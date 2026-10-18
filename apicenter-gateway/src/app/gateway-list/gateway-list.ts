@@ -16,7 +16,7 @@ export class GatewayList implements OnInit {
 
   constructor(private gatewayService: GatewayService){}
 
-  ngOnInit(){
+  ngOnInit(): void{
 
     this.gatewayService.listar().subscribe({
       next: (dados) => {
@@ -24,7 +24,7 @@ export class GatewayList implements OnInit {
         this.carregando = false;
       },
       error: () => {
-        this.error = 'Erro ao carregar gatewats. Verifique se a API está rodando.'
+        this.error = 'Erro ao carregar gatewats. Verifique se a API está rodando.';
         this.carregando = false;
       }
     });
